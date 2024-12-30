@@ -10,7 +10,8 @@ def one_hot_encoding(df, column):
 
 def fill_with_mean(col, df):
     mean_value = df[col].mean()
-    df[col] = df[col].fillna(value=mean_value, inplace=True)
+    df[col] = df[col].fillna(value=mean_value)
 
 def fill_with_mode(col, df):
-    df[col] = df[col].fillna(df[col].mode()[0], inplace=True)
+    mode_value = df[col].mode()[0]
+    df[col] = df[col].fillna(value=mode_value)
