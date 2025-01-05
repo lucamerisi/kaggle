@@ -1,5 +1,6 @@
 import pandas as pd
 from sklearn import preprocessing
+
 def one_hot_encoding(df, column):
     df = df.copy()
     encoder = preprocessing.OneHotEncoder()
@@ -53,6 +54,6 @@ def drop_col_miss_val(df_train, df_test, perc):
                                   'percent_missing': percent_missing})
   missing_value_df = missing_value_df.loc[missing_value_df['percent_missing'] >= perc]
   cols = missing_value_df[['column_name']].values.squeeze(axis=1)
-  print(cols)
+  # print(cols)
   df_train = df_train.drop(cols, axis=1, inplace=True)
-  df_test = df_test.drop(cols, axis=1, inplace=True)
+  df_test = df_test.drop(cols, axis=1, inplace=True)  
